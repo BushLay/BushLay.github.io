@@ -55,4 +55,4 @@ def blog_comment(request):
 def search(request):
     q = request.GET.get('q')
     blogs = Blog.objects.filter(Q(title__icontains=q)|Q(content__icontains=q)).all()
-    return render(request, "index.html", context={"blogs": blogs})
+    return render(request, "../index.html", context={"blogs": blogs})
