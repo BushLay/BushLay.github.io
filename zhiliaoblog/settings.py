@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-)0l1t^ihk+p5pwn7%6i$ohv)%5$p2b_ym8gtcy=)ao-myx4xw0"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-# ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ['.saulgoodman.ac.cn', '47.122.44.53']
+ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ['.saulgoodman.ac.cn', '47.122.44.53']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 
@@ -68,6 +68,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+            # todo
             'builtins':['django.templatetags.static']
         },
     },
@@ -132,10 +133,14 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "static/"
+
+STATIC_URL = '/static/'
+# STATIC_ROOT = 'static'
 
 # 静态文件加载路径
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
